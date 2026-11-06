@@ -1,0 +1,16 @@
+# Optional Render Blueprint for the API. You can also create the service by hand (see README).
+services:
+  - type: web
+    name: showroom-expense-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false
